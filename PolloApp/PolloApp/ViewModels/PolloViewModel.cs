@@ -1,4 +1,5 @@
 ﻿using PolloApp.Models;
+using PolloApp.Services;
 using PolloApp.Views;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,10 @@ namespace PolloApp.ViewModels
 {
     public class PolloViewModel : INotifyPropertyChanged
     {
+        //Instanciar una clase del servicio
+        // ServiceClass servicio = new();
+
+        PolloService servicio = new PolloService();
 
         public ObservableCollection<Producto> Productos { get; set; } = new ObservableCollection<Producto>();
 
@@ -32,6 +37,8 @@ namespace PolloApp.ViewModels
             LoginCommand = new Command(Login);
             LogoutCommand = new Command(Logout);
             ChangeViewCommand = new Command<string>(ChangeView);
+
+
 
          
 
@@ -57,7 +64,12 @@ namespace PolloApp.ViewModels
 
         public void Terminar()
         {
-            //Implementar servidor
+            // Implementar servidor
+
+            // Llamar al metodo el servicio AQUI
+            // Servicio.llamar();
+
+            servicio.Enviar();
         }
 
 

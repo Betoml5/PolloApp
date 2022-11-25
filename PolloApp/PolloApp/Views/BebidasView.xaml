@@ -1,7 +1,10 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:PolloApp.ViewModels"
              x:Class="PolloApp.Views.BebidasView" 
              Background="#fb9c1c">
+    <ContentPage.BindingContext>
+        <viewmodels:PolloViewModel></viewmodels:PolloViewModel>
+    </ContentPage.BindingContext>
     <StackLayout>
         <Grid>
             <Image Margin="3" Opacity=".8" HeightRequest="150" Aspect="AspectFill" Source="PortadaBebidas.jpg"></Image>
@@ -33,8 +36,8 @@
             
         </ListView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-            <Button Margin="5" Background="#fb5b05" Text="ᐊ Atras" Command="{Binding BackCommand}" HorizontalOptions="FillAndExpand"></Button>
-            <Button Margin="5" Background="#fb5b05" Text="Terminar" Command="{Binding FinalizarCommand}" HorizontalOptions="FillAndExpand"></Button>
+            <Button Margin="5" Background="#fb5b05" Text="ᐊ Atras" Command="{Binding ChangeViewCommand}" CommandParameter="home" HorizontalOptions="FillAndExpand"></Button>
+            <Button Margin="5" Background="#fb5b05" Text="Terminar" Command="{Binding TerminarCommand}" HorizontalOptions="FillAndExpand"></Button>
         </StackLayout>
     </StackLayout>
 </ContentPage>
