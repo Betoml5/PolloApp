@@ -1,0 +1,21 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:PolloApp.ViewModels"
+             x:Class="PolloApp.Views.VistaPrincipalView" 
+             Background="#fb9c1c">
+
+    <ContentPage.BindingContext>
+        <viewmodels:PolloViewModel></viewmodels:PolloViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+
+        <StackLayout  VerticalOptions="CenterAndExpand">
+            <Image Margin="50" HeightRequest="350" Source="logo.png"></Image>
+            <Label Margin="10,0,0,0" FontSize="Medium" Text="Nombre del cliente:"></Label>
+            <Entry  TextColor="Black" Margin="10" Background="white"></Entry>
+            <Button CornerRadius="50" Margin="20" 
+                    BackgroundColor="#FF6523" FontSize="30" 
+                    Text="Empezar pedido" Command="{Binding LoginCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

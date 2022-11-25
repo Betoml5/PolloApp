@@ -1,0 +1,41 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:PolloApp.ViewModels"
+             x:Class="PolloApp.Views.ComidasView" 
+             Background="#fb9c1c">
+    <ContentPage.BindingContext>
+        <viewmodels:PolloViewModel></viewmodels:PolloViewModel>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Grid>
+            <Image Margin="3" Opacity=".9" HeightRequest="150" Aspect="AspectFill" Source="PortadaComida.jpg"></Image>
+            <Label FontAttributes="Bold" TextColor="WhiteSmoke" FontSize="50" HorizontalOptions="Center" VerticalOptions="Center" Padding="15" Text="COMIDAS"></Label>
+        </Grid>
+        <ListView ItemsSource="{Binding Productos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image HorizontalOptions="Start" Margin="10" HeightRequest="150" Aspect="AspectFit"  
+                                   Source="{Binding Imagen}"></Image>
+                            <StackLayout Orientation="Vertical" Grid.Column="1" VerticalOptions="Center" >
+                                <Label Margin="10,5,5,5" HorizontalOptions="Start" FontSize="Body" FontAttributes="Bold" 
+                                       Text="{Binding Nombre}"></Label>
+                                <Label Text="0" ></Label>
+                                <Stepper HeightRequest="40" VerticalOptions="Center" Maximum="10" Minimum="1" 
+                                         Value="{Binding Cantidad}"></Stepper>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Button Margin="5" Background="#fb5b05" Text="ᐊ Atras" Command="{Binding LogoutCommand}" HorizontalOptions="FillAndExpand"></Button>
+            <Button Margin="5" Background="#fb5b05" Text="Ir a complementos" Command="{Binding ChangeViewCommand}" CommandParameter="complementos" HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
